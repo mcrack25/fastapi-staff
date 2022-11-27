@@ -3,7 +3,7 @@ import databases
 import ormar
 import sqlalchemy
 
-from config import settings
+from core.config import settings
 
 database = databases.Database(settings.db_url)
 metadata = sqlalchemy.MetaData()

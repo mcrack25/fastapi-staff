@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from db import database, User
+from core.db import database, User
 
 app = FastAPI(title="FastAPI, Docker")
 

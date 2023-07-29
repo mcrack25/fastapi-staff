@@ -1,6 +1,11 @@
 {
-    "python.linting.pylintEnabled": false,
-    "python.linting.enabled": true,
-    "python.linting.flake8Enabled": true,
+    "editor.rulers": [79, 119],
+    "workbench.colorCustomizations": {
+        "editorRuler.foreground": "#353535"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "python.formatting.provider": "none",
     "files.eol": "\n"
 }

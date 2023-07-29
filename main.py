@@ -1,25 +1,15 @@
+import uvicorn
 from fastapi import FastAPI
 
-from core.db import database, User
-
-app = FastAPI(title="FastAPI, Docker")
+from core.routers import all_routers
 
 
-@app.get("/")
-async def read_root():
-    return await User.objects.all()
+app = FastAPI(title="Упрощенный аналог Jira/Asana")
 
 
-@app.on_event("startup")
-async def startup():
-    if not database.is_connected:
-        await database.connect()
-
-    # Создание первичных данных
-    await User.objects.get_or_create(email="test@test.com")
+for router in all_routers:
+    app.include_router(router)
 
 
-@app.on_event("shutdown")
-async def shutdown():
-    if database.is_connected:
-        await database.disconnect()
+if __name__ == "__main__":
+    uvicorn.run(app="main:app", reload=True)

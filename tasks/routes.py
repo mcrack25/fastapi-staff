@@ -17,7 +17,7 @@ async def add_task(
     task: TaskSchemaAdd,
     tasks_service: Annotated[TasksService, Depends(tasks_service)],
 ):
-    task_id = await tasks_service.add_task(task)
+    task_id = await tasks_service.add_one(task)
     return {"task_id": task_id}
 
 
@@ -25,5 +25,5 @@ async def add_task(
 async def get_tasks(
     tasks_service: Annotated[TasksService, Depends(tasks_service)],
 ):
-    tasks = await tasks_service.get_tasks()
+    tasks = await tasks_service.get_all()
     return tasks

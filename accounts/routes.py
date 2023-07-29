@@ -17,7 +17,7 @@ async def add_user(
     user: UserSchemaAdd,
     users_service: Annotated[UsersService, Depends(users_service)],
 ):
-    user_id = await users_service.add_user(user)
+    user_id = await users_service.add_one(user)
     return {"user_id": user_id}
 
 
@@ -25,5 +25,5 @@ async def add_user(
 async def get_users(
     users_service: Annotated[UsersService, Depends(users_service)],
 ):
-    users = await users_service.get_users()
+    users = await users_service.get_all()
     return users

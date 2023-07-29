@@ -13,7 +13,7 @@
 		"ms-python.python",
 		"ms-azuretools.vscode-docker",
 		"ms-python.isort",
-		"mikoz.black-py"
+		"mikoz.black-py",
 		"kamilu.readme-generator",
 	],
 	"onCreateCommand": "bash ./.devcontainer/oncreate.sh",
